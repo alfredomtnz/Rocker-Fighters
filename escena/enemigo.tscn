@@ -1,0 +1,164 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://sonidos/son_Slap.wav" type="AudioStream" id=1]
+[ext_resource path="res://imagenes/enemigos/enemigo2.png" type="Texture" id=2]
+[ext_resource path="res://imagenes/enemigos/character_sheet_no_bg_aggressive.png" type="Texture" id=3]
+[ext_resource path="res://sonidos/son_Juorrgh!!.wav" type="AudioStream" id=4]
+[ext_resource path="res://enemigo.gd" type="Script" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 11.2237, 21.653 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 95, 96 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 95, 96, 95, 96 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 95, 96 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 95, 0, 95, 96 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 190, 0, 95, 96 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 95, 96 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 96, 95, 96 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 190, 192, 95, 96 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 192, 95, 96 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 2 )
+region = Rect2( 95, 192, 95, 96 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 288, 95, 96 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 2 )
+region = Rect2( 95, 288, 95, 96 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 3 )
+region = Rect2( 312, 184, 104, 92 )
+
+[sub_resource type="SpriteFrames" id=15]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "herir",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "parado",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 7 ), SubResource( 7 ) ],
+"loop": true,
+"name": "golpe",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 9 ) ],
+"loop": true,
+"name": "caminar",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 13 ), SubResource( 14 ), SubResource( 13 ), SubResource( 13 ), SubResource( 14 ) ],
+"loop": true,
+"name": "KO",
+"speed": 4.0
+} ]
+
+[sub_resource type="CircleShape2D" id=16]
+radius = 68.1787
+
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 7.78629, 15.2857 )
+
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 7.73996, 15.3962 )
+
+[node name="enemigo" type="KinematicBody2D"]
+position = Vector2( 0.149191, 0.0804749 )
+scale = Vector2( 1.4, 1.3 )
+collision_layer = 2
+collision_mask = 21
+script = ExtResource( 7 )
+
+[node name="cuerpo" type="CollisionShape2D" parent="."]
+position = Vector2( 0.17347, 0.0240703 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -2.58757, -0.20199 )
+scale = Vector2( 0.711553, 0.649626 )
+frames = SubResource( 15 )
+animation = "parado"
+
+[node name="deteccion" type="Area2D" parent="."]
+position = Vector2( -0.979767, 1.84851 )
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="deteccion"]
+position = Vector2( 1.22053, -2.51381 )
+shape = SubResource( 16 )
+
+[node name="areaizquierda" type="Area2D" parent="."]
+position = Vector2( -19.395, -4.19897 )
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areaizquierda"]
+modulate = Color( 0.992157, 0, 0.0235294, 1 )
+position = Vector2( 0.14221, 0.020072 )
+shape = SubResource( 17 )
+
+[node name="areaderecha" type="Area2D" parent="."]
+position = Vector2( 19.6713, -4.69289 )
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areaderecha"]
+modulate = Color( 0.992157, 0.0117647, 0.0117647, 1 )
+position = Vector2( -0.165632, 0.602224 )
+shape = SubResource( 18 )
+
+[node name="tiempoKO" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="tiempogolpe" type="Timer" parent="."]
+wait_time = 2.5
+
+[node name="ale" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+
+[node name="aleKO" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = 4.078
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+position = Vector2( -4.63698, 7.34838 )
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="body_entered" from="deteccion" to="." method="_on_deteccion_body_entered"]
+[connection signal="body_exited" from="deteccion" to="." method="_on_deteccion_body_exited"]
+[connection signal="timeout" from="tiempoKO" to="." method="_on_tiempoKO_timeout"]
+[connection signal="timeout" from="tiempogolpe" to="." method="_on_tiempogolpe_timeout"]

@@ -1,0 +1,353 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://fuentes/Skranji-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://imagenes/ecenarios/city.png" type="Texture" id=2]
+[ext_resource path="res://sonidos/Quiet-Riot-Cum-On-Feel-The-Noize-_8-Bit_.wav" type="AudioStream" id=3]
+[ext_resource path="res://menu.gd" type="Script" id=4]
+[ext_resource path="res://imagenes/ecenarios/menu-1.png.png" type="Texture" id=5]
+[ext_resource path="res://fuentes/Crang.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://imagenes/ecenarios/scorpions-band-tegar-degio.jpg" type="Texture" id=7]
+[ext_resource path="res://imagenes/ecenarios/pink_nivel.png" type="Texture" id=8]
+[ext_resource path="res://fuentes/Retro Gaming.ttf" type="DynamicFontData" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 55
+outline_size = 5
+outline_color = Color( 0.0352941, 0.0666667, 0.14902, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 18
+outline_size = 5
+outline_color = Color( 0.0196078, 0.0745098, 0.180392, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 45
+outline_size = 5
+outline_color = Color( 0.0431373, 0.054902, 0.0509804, 1 )
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 25
+font_data = ExtResource( 9 )
+
+[sub_resource type="Animation" id=6]
+length = 30.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("intro/atras:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 640, 360 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("intro/atras:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 29.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -436, -1.01514e-07 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("intro/Labelintro:rect_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 640, 597 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("intro/Labelintro:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 29.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.33484, 364.411 ), Vector2( 0, -613.117 ) ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 29.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_open_menu"
+} ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("menu/Labelpresionastart:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[node name="menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="intro" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="atras" type="TextureRect" parent="intro"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -39.2434
+margin_top = -9.13706e-09
+margin_right = -39.2434
+rect_rotation = -0.158419
+rect_scale = Vector2( 1.68512, 1.76021 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Labelintro" type="Label" parent="intro"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.21346
+margin_top = 275.522
+margin_right = 1.21344
+margin_bottom = 512.522
+custom_fonts/font = SubResource( 1 )
+text = "rocker fighters es un beat 'em up de desplazamiento lateral en el que jugadores localmente o dos jugadores en línea luchan contra oleadas de enemigos. Junto con los ataques estándar, los lanzamientos y los Blitz Moves, cada personaje del jugador tiene un conjunto de ataques especiales que se pueden realizar a costa de algo de salud . En este juego, sin embargo, los jugadores pueden recuperar la salud gastada en un ataque especial realizando ataques de seguimiento sucesivos sin ser golpeados. Cada personaje del jugador también tiene un supercombo único , \"Star Moves\", que se puede realizar presionando ciertas teclas. 
+
+El modo de juego principal, pelea por puntos, ve a los jugadores pasando por cada nivel a medida que vas matando enemigos estos se vuelven mas fuertes, con una selección de niveles basados en famosas bandas de rock tales como pink floyd, scorpions y ramones. Ambientada en esa epoca , la historia presenta al personaje principal llamado alex luchando por los distintos escenarios para liberarlo de los malvados haters of rock . Los jugadores tienen un número limitado de vidas , pero pueden ganar más vida utilizando la poderosa calavera de vida que aparecera cada cierto tiempo en cada nivel. Si el jugador pierde todas sus vidas, tendrán que volver a intentar el nivel desde el principio, con la opción de salir del juego o cambiar de nivel o reintentar el nivel actual. este juego es presentado en un estilo pseudo de 16 bits .  El juego también cuenta con una opción de audio retro, con pistas musicales conocidas de las bandas anteriormente mencionadas tales como young lust, blitzgrieg bop, rock you like a hurricane, entre otras, estas versiones de 16 bits.
+¡disfruta el juego! "
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="menu" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="atras2" type="TextureRect" parent="menu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Labeltitulo" type="Label" parent="menu"]
+anchor_left = 0.5
+anchor_top = 0.71
+anchor_right = 0.5
+anchor_bottom = 0.71
+margin_left = -312.985
+margin_top = -18.5268
+margin_right = 327.015
+margin_bottom = 57.4732
+custom_fonts/font = SubResource( 2 )
+text = "Rocker Fighters"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Labelpresionastart" type="Label" parent="menu"]
+anchor_left = 0.5
+anchor_top = 0.914
+anchor_right = 0.5
+anchor_bottom = 0.914
+margin_left = -223.003
+margin_top = -0.0602722
+margin_right = 228.997
+margin_bottom = 48.9397
+custom_fonts/font = SubResource( 3 )
+text = "PRESS <ENTER> FOR PLAY"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="seleccionar" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back" type="ColorRect" parent="seleccionar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.12244
+margin_right = 1.12244
+color = Color( 0.0352941, 0.0352941, 0.0352941, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="nivel1" type="ColorRect" parent="seleccionar"]
+margin_left = 85.1869
+margin_top = 111.407
+margin_right = 237.187
+margin_bottom = 232.407
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="seleccionar/nivel1"]
+margin_left = 5.0
+margin_top = 4.0
+margin_right = 147.0
+margin_bottom = 115.0
+texture = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonNivel1" type="Button" parent="seleccionar/nivel1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -0.664444
+margin_bottom = -0.664444
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="nivel2" type="ColorRect" parent="seleccionar"]
+margin_left = 360.307
+margin_top = 109.67
+margin_right = 509.307
+margin_bottom = 229.67
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="seleccionar/nivel2"]
+anchor_left = -0.078
+anchor_right = -0.078
+margin_left = 17.622
+margin_top = 8.0
+margin_right = 154.622
+margin_bottom = 115.0
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonNivel2" type="Button" parent="seleccionar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 362.0
+margin_top = 110.0
+margin_right = -130.0
+margin_bottom = -133.0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelLevel" type="Label" parent="seleccionar"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -199.898
+margin_top = 34.7963
+margin_right = 220.102
+margin_bottom = 85.7963
+custom_fonts/font = SubResource( 4 )
+text = "SELECT LEVEL"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Labelpink" type="Label" parent="seleccionar"]
+margin_left = 76.1416
+margin_top = 235.586
+margin_right = 252.142
+margin_bottom = 337.586
+custom_fonts/font = SubResource( 5 )
+text = "PINK FLOYD
+"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Labelpink2" type="Label" parent="seleccionar"]
+margin_left = 353.208
+margin_top = 249.722
+margin_right = 529.208
+margin_bottom = 351.722
+custom_fonts/font = SubResource( 5 )
+text = "SCORPIONS
+
+"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "intro"
+anims/intro = SubResource( 6 )
+anims/menu = SubResource( 7 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
+
+[connection signal="mouse_entered" from="seleccionar/nivel1/ButtonNivel1" to="." method="_on_ButtonNivel1_mouse_entered"]
+[connection signal="mouse_exited" from="seleccionar/nivel1/ButtonNivel1" to="." method="_on_ButtonNivel1_mouse_exited"]
+[connection signal="pressed" from="seleccionar/nivel1/ButtonNivel1" to="." method="_on_ButtonNivel1_pressed"]
+[connection signal="mouse_entered" from="seleccionar/ButtonNivel2" to="." method="_on_ButtonNivel2_mouse_entered"]
+[connection signal="mouse_exited" from="seleccionar/ButtonNivel2" to="." method="_on_ButtonNivel2_mouse_exited"]
+[connection signal="pressed" from="seleccionar/ButtonNivel2" to="." method="_on_ButtonNivel2_pressed"]

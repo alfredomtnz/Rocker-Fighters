@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Pink Floyd - Young Lust - The Wall - 09 - Rock.mp3-0f131360af2034c0c9371b2250d546d6.mp3str"
+
+[deps]
+
+source_file="res://escena/Pink Floyd - Young Lust - The Wall - 09 - Rock.mp3"
+dest_files=[ "res://.import/Pink Floyd - Young Lust - The Wall - 09 - Rock.mp3-0f131360af2034c0c9371b2250d546d6.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,120 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://imagenes/ecenarios/pinnkfloyd2.png" type="Texture" id=1]
+[ext_resource path="res://escena/personaje.tscn" type="PackedScene" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://escena/enemigo.tscn" type="PackedScene" id=4]
+[ext_resource path="res://escena/barra_de_vida.tscn" type="PackedScene" id=5]
+[ext_resource path="res://sonidos/Pink Floyd Young lust 8 BITS.wav" type="AudioStream" id=6]
+[ext_resource path="res://spawner.gd" type="Script" id=7]
+[ext_resource path="res://escena/objeto_vida.tscn" type="PackedScene" id=8]
+[ext_resource path="res://spawner_vida.gd" type="Script" id=9]
+[ext_resource path="res://escena/puntajeUI.tscn" type="PackedScene" id=10]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
+
+[sub_resource type="TileSet" id=2]
+0/name = "icon.png 0"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[node name="ecena_pink" type="Node2D"]
+position = Vector2( -2, 0 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="pinnkfloyd2" type="Sprite" parent="."]
+position = Vector2( 478.153, 180.442 )
+scale = Vector2( 1.23739, 1.61421 )
+texture = ExtResource( 1 )
+
+[node name="personaje" parent="pinnkfloyd2" instance=ExtResource( 2 )]
+position = Vector2( -119.21, 44.7584 )
+scale = Vector2( 0.5, 0.4 )
+
+[node name="Camera2D" type="Camera2D" parent="pinnkfloyd2/personaje"]
+position = Vector2( 1.61627, 1.54877 )
+current = true
+limit_left = 0
+limit_top = 0
+limit_right = 947
+limit_bottom = 362
+editor_draw_limits = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="pinnkfloyd2"]
+stream = ExtResource( 6 )
+volume_db = -1.0
+autoplay = true
+
+[node name="spawner" type="Node2D" parent="pinnkfloyd2"]
+position = Vector2( 0, 50 )
+script = ExtResource( 7 )
+enemy_scene = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="pinnkfloyd2/spawner"]
+wait_time = 2.0
+
+[node name="spawner_vida" type="Node2D" parent="pinnkfloyd2"]
+position = Vector2( 0, 50 )
+script = ExtResource( 9 )
+objeto_vida_scene = ExtResource( 8 )
+max_objetos_vida = 10
+
+[node name="Timer_vida" type="Timer" parent="pinnkfloyd2/spawner_vida"]
+autostart = true
+
+[node name="TileMap" type="TileMap" parent="."]
+visible = false
+position = Vector2( -1, 0 )
+scale = Vector2( 1, 0.6 )
+tile_set = SubResource( 2 )
+cell_size = Vector2( 63, 64 )
+collision_layer = 13
+format = 1
+tile_data = PoolIntArray( -1, 0, 0, 65535, 0, 0, 15, 0, 0, 131071, 0, 0, 65551, 0, 0, 196607, 0, 0, 131087, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 327679, 0, 0, 262159, 0, 0, 393215, 0, 0, 327695, 0, 0, 458751, 0, 0, 393231, 0, 0, 524287, 0, 0, 458767, 0, 0, 589823, 0, 0, 524303, 0, 0, 655359, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0 )
+
+[node name="enemigo" parent="." instance=ExtResource( 4 )]
+position = Vector2( 721.852, 280.612 )
+scale = Vector2( 2, 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="barra_de_vida" parent="CanvasLayer" instance=ExtResource( 5 )]
+margin_left = 32.4969
+margin_top = 10.2485
+margin_right = 32.4968
+margin_bottom = -1.75146
+
+[node name="objeto_vida" parent="." instance=ExtResource( 8 )]
+position = Vector2( 495.196, 333.816 )
+
+[node name="puntajeUI" parent="." instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 561.968
+margin_top = 9.53806
+margin_right = 561.968
+margin_bottom = 9.53806
+
+[connection signal="timeout" from="pinnkfloyd2/spawner/Timer" to="pinnkfloyd2/spawner" method="_on_Timer_timeout"]
+[connection signal="timeout" from="pinnkfloyd2/spawner_vida/Timer_vida" to="pinnkfloyd2/spawner_vida" method="_on_Timer_vida_timeout"]
