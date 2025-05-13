@@ -7,8 +7,8 @@ antes de que se te acaben las vidas es la version 1, a este juego se le implemen
  ## PERSONAJE PRINCIPAL:
  ![image](https://github.com/user-attachments/assets/1eb663fc-5dd4-412c-881c-defdd4bafe0a)
 •	 Kevin es un peleador y un amante del rock and roll que camina pr las calles para luchar con los haters del rock
-![image](https://github.com/user-attachments/assets/a3669ca6-0e5c-45e0-958e-de15d8fe1cf8)
 ## ENEMIGO:
+![image](https://github.com/user-attachments/assets/a3669ca6-0e5c-45e0-958e-de15d8fe1cf8)
 •	El es vince es un hater del rock que con su pandilla van por las calles para acabar con kevin
 ## INTERFAZ:
 ![image](https://github.com/user-attachments/assets/abf19759-2473-4a20-8b79-54d6c68c5515)
