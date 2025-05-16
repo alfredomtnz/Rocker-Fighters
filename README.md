@@ -1,7 +1,11 @@
 # Rocker-Fighters
 ## DESARROLLO:
 Este juego se desarrollo con godot es un juego lineal de peleas de puntacion donde vas a lograr la mayor puntuacion posible
-antes de que se te acaben las vidas es la version 1, a este juego se le implementara una IA que haga que la IA juegue por nosotros contra el CPU
+antes de que se te acaben las vidas es la version 1, a este juego se le implementara una IA que haga que la IA juegue por nosotros contra el CPU.
+## INTEGRANTES:
+* Israel Amaury Madrigal Guerrero
+* Emily Tomomi Shimoda
+* Alfredo Amezcua Martinez
 ## CAPTURAS DE PANTALLA:
 ![image](https://github.com/user-attachments/assets/c5d1f178-058f-4339-afe0-99f293b052c2)
  ## PERSONAJE PRINCIPAL:
